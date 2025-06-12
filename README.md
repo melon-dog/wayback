@@ -25,10 +25,12 @@ Basic usage:
 ```python
     status = wb.status(result.job_id)
 ```
-4. Verify if a URL is already archived:
+4. Verify if a URL is already indexed:
 ```python
     is_indexed = wb.indexed("https://example.com")
 ```
+> **Warning:**  
+> URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 Notes:
 ------
 
