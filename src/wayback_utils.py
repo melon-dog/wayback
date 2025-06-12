@@ -4,6 +4,9 @@ import threading
 from typing import Callable
 from urllib.parse import quote
 
+UNKNOWN_ERROR = 599
+PARSE_ERROR = 598
+
 
 class WayBackStatus:
     status: str = None
@@ -17,6 +20,7 @@ class WayBackStatus:
     message: str = None
     outlinks: list[str] = None
     resources: list[str] = None
+    archive_url: str = None
 
     def __init__(self, json):
         self.status = json.get("status", None)
@@ -29,6 +33,8 @@ class WayBackStatus:
         self.exception = json.get("exception", None)
         self.status_ext = json.get("status_ext", None)
         self.message = json.get("message", None)
+        if self.status == "success":
+            self.archive_url = f"https://web.archive.org/web/${self.timestamp}id_/${quote(self.original_url, safe='')}"
 
 
 class WayBackSave:
@@ -114,12 +120,12 @@ class WayBack:
             if response is not None and response.status_code is not None:
                 return WayBackSave({}, response.status_code)
             else:
-                return WayBackSave({}, 599)  # unknown error
+                return WayBackSave({}, UNKNOWN_ERROR)  # unknown error
 
         try:
             responseData = WayBackSave(response.json(), response.status_code)
         except:
-            return WayBackSave({}, 599)  # unknown error
+            return WayBackSave({}, PARSE_ERROR)  # parse error
 
         if on_confirmation is not None:
 
