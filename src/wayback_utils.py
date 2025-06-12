@@ -119,7 +119,7 @@ class WayBack:
                         statusInfo = self.status(responseData.job_id, timeout)
                         match statusInfo.status:
                             case "pending":
-                                time.sleep(5)
+                                time.sleep(10)
                             case "success":
                                 return on_confirmation(statusInfo)
                             case "error":
