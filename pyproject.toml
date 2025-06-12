@@ -12,7 +12,7 @@ authors = [
 ]
 license = { file = "LICENSE" }
 classifiers = [
-    "License :: MIT License",
+    "License :: MIT",
     "Programming Language :: Python :: 3"
 ]
 requires-python = ">=3.10"
