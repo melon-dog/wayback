@@ -17,7 +17,7 @@ This module provides a Python interface to interact with the Wayback Machine web
 ## Basic usage:
 
 > **Note:**  
-> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [https://archive.org/account/s3.php](https://archive.org/account/s3.php).
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
 ```python
     from wayback_utils import WayBack, WayBackStatus, WayBackSave
