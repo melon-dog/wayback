@@ -52,7 +52,7 @@ Notes:
 
 ## save() parameters:
 
-The `save()` method accepts several optional parameters to customize the capture process:
+The `save( )` method accepts several optional parameters to customize the capture process:
 
 - `url`: The URL to be archived.
 - `timeout`: Maximum time (in seconds) to wait for the archiving operation to complete.
@@ -68,7 +68,7 @@ The `save()` method accepts several optional parameters to customize the capture
 
 ## status() parameters:
 
-The `status()` method checks the status of an archiving job.
+The `status( )` method checks the status of an archiving job.
 
 - `job_id`: The unique identifier of the archiving job to check.
 - `timeout`: Maximum time in seconds to wait for the status response.
@@ -77,7 +77,7 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 
 ## indexed() parameters:
 
-The `indexed()` method checks if a given URL has already been archived and indexed by the Wayback Machine.
+The `indexed( )` method checks if a given URL has already been archived and indexed by the Wayback Machine.
 
 - `url`: The URL to check for existing archives.
 - `timeout`: Maximum time in seconds to wait for the response.
