@@ -102,15 +102,24 @@ class WayBack:
             "Authorization": f"LOW {self.ACCESS_KEY}:{self.SECRET_KEY}",
         }
 
-        response = requests.post(
-            url="https://web.archive.org/save",
-            data=payload,
-            headers=headers,
-            timeout=timeout,
-        )
+        try:
+            response = requests.post(
+                url="https://web.archive.org/save",
+                data=payload,
+                headers=headers,
+                timeout=timeout,
+            )
+            response.raise_for_status()
+        except:
+            if response is not None and response.status_code is not None:
+                return WayBackSave({}, response.status_code)
+            else:
+                return WayBackSave({}, 599)  # unknown error
 
-        response.raise_for_status()
-        responseData = WayBackSave(response.json(), response.status_code)
+        try:
+            responseData = WayBackSave(response.json(), response.status_code)
+        except:
+            return WayBackSave({}, 599)  # unknown error
 
         if on_confirmation is not None:
 
@@ -145,15 +154,16 @@ class WayBack:
             "Authorization": f"LOW {self.ACCESS_KEY}:{self.SECRET_KEY}",
         }
 
-        response = requests.post(
-            url="https://web.archive.org/save/status",
-            data=payload,
-            headers=headers,
-            timeout=timeout,
-        )
-
-        response.raise_for_status()
-        return WayBackStatus(response.json())
+        try:
+            response = requests.post(
+                url="https://web.archive.org/save/status",
+                data=payload,
+                headers=headers,
+                timeout=timeout,
+            )
+            return WayBackStatus(response.json())
+        except:
+            return WayBackStatus({"status": "error"})
 
     def indexed(self, url: str, timeout: int = 300) -> bool:
         waybackApiUrl = (
