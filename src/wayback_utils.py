@@ -175,7 +175,7 @@ class WayBack:
 
     def indexed(self, url: str, timeout: int = 300) -> bool:
         waybackApiUrl = (
-            f"http://web.archive.org/cdx/search/cdx?url={quote(url, safe='')}"
+            f"http://web.archive.org/cdx/search/cdx?url={quote(url)}"
             + "&fl=timestamp,original"
             + "&output=json"
             + "&page=0"
