@@ -29,6 +29,16 @@ Basic usage:
 ```python
     is_indexed = wb.indexed("https://example.com")
 ```
+
+You can also pass a callback function to `save()` using the `on_confirmation` parameter. This callback will be called asynchronously with the final result of the archiving operation:
+
+```python
+def my_callback(result):
+    print("Archiving finished:", result.status)
+
+result = wb.save("https://example.com", on_confirmation=my_callback)
+```
+
 > **Warning:**  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 Notes:
