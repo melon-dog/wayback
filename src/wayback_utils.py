@@ -114,6 +114,7 @@ class WayBack:
         if on_confirmation is not None:
 
             def poll_status() -> WayBackStatus:
+                time.sleep(10)
                 while True:
                     try:
                         statusInfo = self.status(responseData.job_id, timeout)
