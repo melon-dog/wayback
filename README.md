@@ -1,16 +1,15 @@
-wayback_utils.py
+# wayback_utils.py
 
 This module provides a Python interface to interact with the Wayback Machine web page archiving service (web.archive.org). It allows you to save URLs, check the status of archiving jobs, and verify if a URL has already been indexed.
 
-Main classes:
--------------
+## Main classes:
 
 - WayBackStatus: Represents the status of an archiving job.
 - WayBackSave: Represents the response when requesting to archive a URL.
 - WayBack: Main class to interact with the Wayback Machine API.
 
-Basic usage:
-------------
+## Basic usage:
+
 > **Note:**  
 > You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [https://archive.org/account/s3.php](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
@@ -42,10 +41,8 @@ result = wb.save("https://example.com", on_confirmation=my_callback)
 > **Warning:**  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 Notes:
-------
 
-save() parameters:
-------------------
+## save() parameters:
 
 The `save()` method accepts several optional parameters to customize the capture process:
 
@@ -61,8 +58,7 @@ The `save()` method accepts several optional parameters to customize the capture
 - `email_result`: Set to `1` to receive an email report of the captured URLs.
 - `on_confirmation`: A callback function that will be called asynchronously with the final result of the archiving operation.
 
-status() parameters:
--------------------
+## status() parameters:
 
 The `status()` method checks the status of an archiving job.
 
@@ -71,8 +67,7 @@ The `status()` method checks the status of an archiving job.
 
 Returns a `WayBackStatus` object with details about the job's progress or result.
 
-indexed() parameters:
---------------------
+## indexed() parameters:
 
 The `indexed()` method checks if a given URL has already been archived and indexed by the Wayback Machine.
 
@@ -85,6 +80,5 @@ Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snap
 - You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
 - The module uses requests and threading.
 
-License:
---------
+# License:
 MIT license.
