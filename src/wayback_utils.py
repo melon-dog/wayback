@@ -34,11 +34,13 @@ class WayBackSave:
     url: str = None
     job_id: str = None
     message: str = None
+    status_code: int = None
 
-    def __init__(self, json):
+    def __init__(self, json, status_code):
         self.url = json.get("url", None)
         self.job_id = json.get("job_id", None)
         self.message = json.get("message", None)
+        self.status_code = status_code
 
 
 class WayBack:
@@ -107,7 +109,7 @@ class WayBack:
         )
 
         response.raise_for_status()
-        responseData = WayBackSave(response.json())
+        responseData = WayBackSave(response.json(), response.status_code)
 
         if on_confirmation is not None:
 
