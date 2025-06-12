@@ -1,7 +1,7 @@
 import os
 import time
 from dotenv import load_dotenv
-from src.wayback import WayBack, WayBackStatus, WayBackSave
+from src.wayback_utils import WayBack, WayBackStatus, WayBackSave
 
 
 def main():
