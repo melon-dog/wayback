@@ -12,10 +12,11 @@ class WayBackStatus:
     screenshot: str = None
     timestamp: str = None
     duration_sec: str = None
-    resources: list = None
     exception: str = None
     status_ext: str = None
     message: str = None
+    outlinks: list[str] = None
+    resources: list[str] = None
 
     def __init__(self, json):
         self.status = json.get("status", None)
@@ -167,9 +168,7 @@ class WayBack:
 
         try:
             response = requests.get(url=waybackApiUrl, timeout=timeout)
-            response.raise_for_status()
             data = response.json()
-            data.get
             if isinstance(data, list):
                 return len(data) > 1
             else:
