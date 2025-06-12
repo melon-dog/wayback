@@ -21,6 +21,7 @@ This module provides a Python interface to interact with the Wayback Machine web
 1. Initialize the WayBack class with your access keys:
 ```python
     from wayback_utils import WayBack, WayBackStatus, WayBackSave
+    
     wb = WayBack(ACCESS_KEY="your_access_key", SECRET_KEY="your_secret_key")
 ```
 2. Save a URL:
