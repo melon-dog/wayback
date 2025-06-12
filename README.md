@@ -44,6 +44,43 @@ result = wb.save("https://example.com", on_confirmation=my_callback)
 Notes:
 ------
 
+save() parameters:
+------------------
+
+The `save()` method accepts several optional parameters to customize the capture process:
+
+- `url`: The URL to be archived.
+- `timeout`: Maximum time (in seconds) to wait for the archiving operation to complete.
+- `capture_all`: Set to `1` to capture web pages even if they return HTTP errors (4xx/5xx). By default, only status 200 pages are captured.
+- `capture_outlinks`: Set to `1` to automatically capture outlinks found on the page (including PDF, JSON, RSS, MRSS).
+- `capture_screenshot`: Set to `1` to capture a full-page PNG screenshot, stored as a separate capture.
+- `delay_wb_availability`: Set to `1` to delay capture availability in the Wayback Machine by ~12 hours, reducing system load.
+- `force_get`: Set to `1` to force a simple HTTP GET request for capture, overriding the default HEAD-based logic.
+- `skip_first_archive`: Set to `1` to skip checking if this is the first archive, speeding up the process.
+- `outlinks_availability`: Set to `1` to return the timestamp of the last capture for all outlinks.
+- `email_result`: Set to `1` to receive an email report of the captured URLs.
+- `on_confirmation`: A callback function that will be called asynchronously with the final result of the archiving operation.
+
+status() parameters:
+-------------------
+
+The `status()` method checks the status of an archiving job.
+
+- `job_id`: The unique identifier of the archiving job to check.
+- `timeout`: Maximum time in seconds to wait for the status response.
+
+Returns a `WayBackStatus` object with details about the job's progress or result.
+
+indexed() parameters:
+--------------------
+
+The `indexed()` method checks if a given URL has already been archived and indexed by the Wayback Machine.
+
+- `url`: The URL to check for existing archives.
+- `timeout`: Maximum time in seconds to wait for the response.
+
+Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
+
 - You need valid access keys (ACCESS_KEY and SECRET_KEY) to use the archiving API.
 - You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
 - The module uses requests and threading.
