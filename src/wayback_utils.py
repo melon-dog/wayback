@@ -1,8 +1,8 @@
+import time
+import requests
+import threading
 from typing import Callable
 from urllib.parse import quote
-import requests
-import time
-import threading
 
 
 class WayBackStatus:
