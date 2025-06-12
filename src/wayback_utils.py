@@ -60,7 +60,7 @@ class WayBack:
         self,
         ACCESS_KEY,
         SECRET_KEY,
-        user_agent="WaybackArchiver/1.0",
+        user_agent="wayback_utils",
     ):
         self.ACCESS_KEY = ACCESS_KEY
         self.SECRET_KEY = SECRET_KEY
