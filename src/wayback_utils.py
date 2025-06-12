@@ -34,7 +34,7 @@ class WayBackStatus:
         self.status_ext = json.get("status_ext", None)
         self.message = json.get("message", None)
         if self.status == "success":
-            self.archive_url = f"https://web.archive.org/web/${self.timestamp}id_/${quote(self.original_url, safe='')}"
+            self.archive_url = f"https://web.archive.org/web/${self.timestamp}id_/${quote(self.original_url)}"
 
 
 class WayBackSave:
