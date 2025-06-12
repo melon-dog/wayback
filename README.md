@@ -8,12 +8,19 @@ This module provides a Python interface to interact with the Wayback Machine web
 - WayBackSave: Represents the response when requesting to archive a URL.
 - WayBack: Main class to interact with the Wayback Machine API.
 
+# Installation
+```pip install wayback_utils```
+- You need valid access keys (`ACCESS_KEY` and `SECRET_KEY`) to use the archiving API.
+- You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
+- The module uses requests and threading.
+
 ## Basic usage:
 
 > **Note:**  
 > You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [https://archive.org/account/s3.php](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
 ```python
+    from wayback_utils import WayBack, WayBackStatus, WayBackSave
     wb = WayBack(ACCESS_KEY="your_access_key", SECRET_KEY="your_secret_key")
 ```
 2. Save a URL:
@@ -76,9 +83,6 @@ The `indexed()` method checks if a given URL has already been archived and index
 
 Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
 
-- You need valid access keys (ACCESS_KEY and SECRET_KEY) to use the archiving API.
-- You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
-- The module uses requests and threading.
 
 # License:
 MIT license.
