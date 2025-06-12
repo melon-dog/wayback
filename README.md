@@ -11,23 +11,24 @@ Main classes:
 
 Basic usage:
 ------------
-
+> **Note:**  
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [https://archive.org/account/s3.php](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
-
+```python
     wb = WayBack(ACCESS_KEY="your_access_key", SECRET_KEY="your_secret_key")
-
+```
 2. Save a URL:
-
+```python
     result = wb.save("https://example.com")
-
+```
 3. Check the status of a job:
-
+```python
     status = wb.status(result.job_id)
-
+```
 4. Verify if a URL is already archived:
-
+```python
     is_indexed = wb.indexed("https://example.com")
-
+```
 Notes:
 ------
 
