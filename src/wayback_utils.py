@@ -108,8 +108,6 @@ class WayBack:
             "Authorization": f"LOW {self.ACCESS_KEY}:{self.SECRET_KEY}",
         }
 
-        response = None
-
         try:
             response = requests.post(
                 url="https://web.archive.org/save",
