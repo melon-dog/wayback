@@ -9,14 +9,29 @@ PARSE_ERROR = 598
 
 
 class WayBackStatus:
+    r"""
+    :param `status`: Archiving job status, "pending", "success", "error".
+    :param `job_id`: The unique identifier of the archiving job to check.
+    :param `original_url`: The URL to be archived.
+    :param `screenshot`: Screenshot of the website, if requested (capture_screenshot=1).
+    :param `timestamp`: Snapshot timestamp.
+    :param `duration_sec`: Duration of the archiving process.
+    :param `status_ext`: Error code
+    :param `exception`: Error
+    :param `message`: Additional information about the process.
+    :param `outlinks`: List of processed outlinks (outlinks_availability=1).
+    :param `resources`: All files downloaded from the web.
+    :param `archive_url`: Full link to the website via the Wayback Machine
+    """
+
     status: str = None
     job_id: str = None
     original_url: str = None
     screenshot: str = None
     timestamp: str = None
     duration_sec: str = None
-    exception: str = None
     status_ext: str = None
+    exception: str = None
     message: str = None
     outlinks: list[str] = None
     resources: list[str] = None
@@ -30,14 +45,21 @@ class WayBackStatus:
         self.timestamp = json.get("timestamp", None)
         self.duration_sec = json.get("duration_sec", None)
         self.resources = json.get("resources", None)
-        self.exception = json.get("exception", None)
         self.status_ext = json.get("status_ext", None)
+        self.exception = json.get("exception", None)
         self.message = json.get("message", None)
         if self.status == "success":
             self.archive_url = f"https://web.archive.org/web/{self.timestamp}id_/{quote(self.original_url)}"
 
 
 class WayBackSave:
+    r"""
+    :param `url`: URL to be archived.
+    :param `job_id`: The unique identifier of the archiving job to check.
+    :param `message`: Any important message about the processs.
+    :param `status_code`: The save request status code.
+    """
+
     url: str = None
     job_id: str = None
     message: str = None
@@ -94,20 +116,20 @@ class WayBack:
         r"""
         Initiates the archiving process of a URL using the Wayback Machine service.
 
-        :param url: URL to be archived.
-        :param timeout: Maximum time (in seconds) to wait for the archiving operation to complete.
+        :param `url`: URL to be archived.
+        :param `timeout`: Maximum time (in seconds) to wait for the archiving operation to complete.
 
-        :param capture_all: Capture a web page with errors (HTTP status=4xx or 5xx). By default SPN2 captures only status=200 URLs.
-        :param capture_outlinks: Capture web page outlinks automatically. This also applies to PDF, JSON, RSS and MRSS feeds.
-        :param capture_screenshot: Capture full page screenshot in PNG format. This is also stored in the Wayback Machine as a different capture.
-        :param delay_wb_availability: The capture becomes available in the Wayback Machine after ~12 hours instead of immediately. This option helps reduce the load on our systems. All API responses remain exactly the same when using this option.
-        :param force_get: Force the use of a simple HTTP GET request to capture the target URL. By default SPN2 does a HTTP HEAD on the target URL to decide whether to use a headless browser or a simple HTTP GET request. force_get overrides this behavior.
-        :param skip_first_archive: Skip checking if a capture is a first if you don’t need this information. This will make captures run faster.
-        :param if_not_archived_within: Capture web page only if the latest existing capture at the Archive is older than the <timedelta> limit in seconds, e.g. “120”. If there is a capture within the defined timedelta, SPN2 returns that as a recent capture. The default system <timedelta> is 45 min.
-        :param outlinks_availability: Return the timestamp of the last capture for all outlinks.
-        :param email_result: Send an email report of the captured URLs to the user’s email.
-        :param js_behavior_timeout: Run JS code for <N> seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system <N> is 5 sec. WARNING: The max <N> value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
-        :param on_confirmation: Optional callback called when archiving finishes.
+        :param `capture_all`: Capture a web page with errors (HTTP status=4xx or 5xx). By default SPN2 captures only status=200 URLs.
+        :param `capture_outlinks`: Capture web page outlinks automatically. This also applies to PDF, JSON, RSS and MRSS feeds.
+        :param `capture_screenshot`: Capture full page screenshot in PNG format. This is also stored in the Wayback Machine as a different capture.
+        :param `delay_wb_availability`: The capture becomes available in the Wayback Machine after ~12 hours instead of immediately. This option helps reduce the load on our systems. All API responses remain exactly the same when using this option.
+        :param `force_get`: Force the use of a simple HTTP GET request to capture the target URL. By default SPN2 does a HTTP HEAD on the target URL to decide whether to use a headless browser or a simple HTTP GET request. force_get overrides this behavior.
+        :param `skip_first_archive`: Skip checking if a capture is a first if you don’t need this information. This will make captures run faster.
+        :param `if_not_archived_within`: Capture web page only if the latest existing capture at the Archive is older than the <timedelta> limit in seconds, e.g. “120”. If there is a capture within the defined timedelta, SPN2 returns that as a recent capture. The default system <timedelta> is 45 min.
+        :param `outlinks_availability`: Return the timestamp of the last capture for all outlinks.
+        :param `email_result`: Send an email report of the captured URLs to the user’s email.
+        :param `js_behavior_timeout`: Run JS code for <N> seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system <N> is 5 sec. WARNING: The max <N> value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
+        :param `on_confirmation`: Optional callback called when archiving finishes with the result.
 
         :return: An object with the request information.
         :rtype: WayBackSave
