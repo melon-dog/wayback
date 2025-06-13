@@ -147,9 +147,9 @@ class WayBack:
                             case "error":
                                 return on_confirmation(statusInfo)
                             case _:
-                                return on_confirmation(WayBackStatus(status_error))
+                                return on_confirmation(status_error)
                     except:
-                        return on_confirmation(WayBackStatus(status_error))
+                        return on_confirmation(status_error)
 
             threading.Thread(target=poll_status, daemon=True).start()
 
