@@ -86,4 +86,4 @@ The `indexed( )` method checks if a given URL has already been archived and inde
 Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
 
 # License:
-MIT license.
+[MIT license](https://github.com/melon-dog/wayback_utils?tab=MIT-1-ov-file).
