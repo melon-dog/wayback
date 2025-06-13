@@ -9,33 +9,48 @@ PARSE_ERROR = 598
 
 
 class WayBackStatus:
-    r"""
-    :param `status`: Archiving job status, "pending", "success", "error".
-    :param `job_id`: The unique identifier of the archiving job to check.
-    :param `original_url`: The URL to be archived.
-    :param `screenshot`: Screenshot of the website, if requested (capture_screenshot=1).
-    :param `timestamp`: Snapshot timestamp.
-    :param `duration_sec`: Duration of the archiving process.
-    :param `status_ext`: Error code
-    :param `exception`: Error
-    :param `message`: Additional information about the process.
-    :param `outlinks`: List of processed outlinks (outlinks_availability=1).
-    :param `resources`: All files downloaded from the web.
-    :param `archive_url`: Full link to the website via the Wayback Machine
+    """
+    Represents the result of a Wayback Machine Status request.
+
+    Attributes:
+        `status` (str): Archiving job status, "pending", "success", "error".
+        `job_id` (str): The unique identifier of the archiving job to check.
+        `original_url` (str): The URL to be archived.
+        `screenshot` (str): Screenshot of the website, if requested (capture_screenshot=1).
+        `timestamp` (str): Snapshot timestamp.
+        `duration_sec` (str): Duration of the archiving process.
+        `status_ext` (str): Error code
+        `exception` (str): Error
+        `message` (str): Additional information about the process.
+        `outlinks` (list[str]): List of processed outlinks (outlinks_availability=1).
+        `resources` (list[str]): All files downloaded from the web.
+        `archive_url` (str): Full link to the website via the Wayback Machine
     """
 
     status: str = None
+    """`status`: Archiving job status, "pending", "success", "error"."""
     job_id: str = None
+    """`job_id`: The unique identifier of the archiving job to check."""
     original_url: str = None
+    """`original_url`: The URL to be archived."""
     screenshot: str = None
+    """`screenshot`: Screenshot of the website, if requested (capture_screenshot=1)."""
     timestamp: str = None
+    """`timestamp`: Snapshot timestamp."""
     duration_sec: str = None
+    """`duration_sec`: Duration of the archiving process."""
     status_ext: str = None
+    """`status_ext`: Error code"""
     exception: str = None
+    """`exception`: Error"""
     message: str = None
+    """`message`: Additional information about the process."""
     outlinks: list[str] = None
+    """`outlinks`: List of processed outlinks (outlinks_availability=1)."""
     resources: list[str] = None
+    """`resources`: All files downloaded from the web."""
     archive_url: str = None
+    """`archive_url`: Full link to the website via the Wayback Machine"""
 
     def __init__(self, json):
         self.status = json.get("status", None)
@@ -53,17 +68,24 @@ class WayBackStatus:
 
 
 class WayBackSave:
-    r"""
-    :param `url`: URL to be archived.
-    :param `job_id`: The unique identifier of the archiving job to check.
-    :param `message`: Any important message about the processs.
-    :param `status_code`: The save request status code.
+    """
+    Represents the result of a Wayback Machine save request.
+
+    Attributes:
+        `url` (str): URL to be archived.
+        `job_id` (str): The unique identifier of the archiving job to check.
+        `message` (str): Any important message about the process.
+        `status_code` (int): The save request status code.
     """
 
     url: str = None
+    """`url`: URL to be archived."""
     job_id: str = None
+    """`job_id`: The unique identifier of the archiving job to check."""
     message: str = None
+    """`message`: Any important message about the process."""
     status_code: int = None
+    """`status_code`: The save request status code."""
 
     def __init__(self, json, status_code):
         self.url = json.get("url", None)
