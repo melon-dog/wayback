@@ -118,11 +118,13 @@ class WayBack:
                 timeout=timeout,
             )
             response.raise_for_status()
-        except:
-            if response is not None and response.status_code is not None:
-                return WayBackSave({}, response.status_code)
+        except requests.exceptions.RequestException as e:
+            if e.response is not None:
+                return WayBackSave({}, e.response.status_code)
             else:
-                return WayBackSave({}, UNKNOWN_ERROR)  # unknown error
+                return WayBackSave({}, UNKNOWN_ERROR)
+        except Exception as e:
+            return WayBackSave({}, UNKNOWN_ERROR)
 
         try:
             responseData = WayBackSave(response.json(), response.status_code)
