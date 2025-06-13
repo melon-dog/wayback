@@ -50,7 +50,6 @@ result = wb.save("https://example.com", on_confirmation=my_callback)
 
 > **Warning:**  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
-Notes:
 
 ## save() parameters:
 
@@ -85,7 +84,6 @@ The `indexed( )` method checks if a given URL has already been archived and inde
 - `timeout`: Maximum time in seconds to wait for the response.
 
 Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
-
 
 # License:
 MIT license.
