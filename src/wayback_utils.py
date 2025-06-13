@@ -127,17 +127,18 @@ class WayBack:
             return WayBackSave({}, UNKNOWN_ERROR)
 
         try:
-            responseData = WayBackSave(response.json(), response.status_code)
+            response_data = WayBackSave(response.json(), response.status_code)
         except:
             return WayBackSave({}, PARSE_ERROR)  # parse error
 
         if on_confirmation is not None:
 
             def poll_status() -> WayBackStatus:
+                status_error = WayBackStatus({"status": "error"})
                 time.sleep(10)
                 while True:
                     try:
-                        statusInfo = self.status(responseData.job_id, timeout)
+                        statusInfo = self.status(response_data.job_id, timeout)
                         match statusInfo.status:
                             case "pending":
                                 time.sleep(10)
@@ -145,12 +146,14 @@ class WayBack:
                                 return on_confirmation(statusInfo)
                             case "error":
                                 return on_confirmation(statusInfo)
+                            case _:
+                                return on_confirmation(WayBackStatus(status_error))
                     except:
-                        return on_confirmation(WayBackStatus({"status": "error"}))
+                        return on_confirmation(WayBackStatus(status_error))
 
             threading.Thread(target=poll_status, daemon=True).start()
 
-        return responseData
+        return response_data
 
     def status(self, job_id: str, timeout: int = 300) -> WayBackStatus:
 
