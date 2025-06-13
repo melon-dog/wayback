@@ -12,11 +12,13 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 
 # Installation
 ```pip install wayback_utils```
+
+
+## Basic usage:
+
 - You need valid access keys (`ACCESS_KEY` and `SECRET_KEY`) to use the archiving API.
 - You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
 - The module uses requests and threading.
-
-## Basic usage:
 
 > [!NOTE]  
 > You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
