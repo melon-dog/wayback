@@ -107,7 +107,7 @@ Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snap
 
 ## Error Codes
 
-| `status_ext`                       | Description                                                                                                                                                                                                 |
+| status_ext                       | Description                                                                                                                                                                                                 |
 |-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `error:bad-gateway`                 | Bad Gateway for URL (HTTP status=502).                                                                                                                                |
 | `error:bad-request`                 | The server could not understand the request due to invalid syntax. (HTTP status=401)                                                                                  |
