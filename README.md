@@ -17,11 +17,12 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 ## Basic usage:
 
 - You need valid access keys (`ACCESS_KEY` and `SECRET_KEY`) to use the archiving API.
+> [!NOTE]  
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
+
 - You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
 - The module uses requests and threading.
 
-> [!NOTE]  
-> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
 ```python
     from wayback_utils import WayBack, WayBackStatus, WayBackSave
