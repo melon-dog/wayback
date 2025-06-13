@@ -79,17 +79,38 @@ class WayBack:
         self,
         url: str,
         timeout: int = 300,
-        capture_all=0,
-        capture_outlinks=0,
-        capture_screenshot=0,
-        delay_wb_availability=0,
-        force_get=0,
-        skip_first_archive=1,
-        outlinks_availability=0,
-        email_result=0,
+        capture_all: int = 0,
+        capture_outlinks: int = 0,
+        capture_screenshot: int = 0,
+        delay_wb_availability: int = 0,
+        force_get: int = 0,
+        skip_first_archive: int = 1,
+        if_not_archived_within: int = 3600,
+        outlinks_availability: int = 0,
+        email_result: int = 0,
+        js_behavior_timeout: int = 5,
         on_confirmation: "Callable[[WayBackStatus], None]" = None,
     ) -> WayBackSave:
+        r"""
+        Initiates the archiving process of a URL using the Wayback Machine service.
 
+        :param url: URL to be archived.
+        :param timeout: Maximum time (in seconds) to wait for the archiving operation to complete.
+        :param capture_all: Capture a web page with errors (HTTP status=4xx or 5xx). By default SPN2 captures only status=200 URLs.
+        :param capture_outlinks: Capture web page outlinks automatically. This also applies to PDF, JSON, RSS and MRSS feeds.
+        :param capture_screenshot: Capture full page screenshot in PNG format. This is also stored in the Wayback Machine as a different capture.
+        :param delay_wb_availability: The capture becomes available in the Wayback Machine after ~12 hours instead of immediately. This option helps reduce the load on our systems. All API responses remain exactly the same when using this option.
+        :param force_get: Force the use of a simple HTTP GET request to capture the target URL. By default SPN2 does a HTTP HEAD on the target URL to decide whether to use a headless browser or a simple HTTP GET request. force_get overrides this behavior.
+        :param skip_first_archive: Skip checking if a capture is a first if you don’t need this information. This will make captures run faster.
+        :param if_not_archived_within: Capture web page only if the latest existing capture at the Archive is older than the <timedelta> limit in seconds, e.g. “120”. If there is a capture within the defined timedelta, SPN2 returns that as a recent capture. The default system <timedelta> is 45 min.
+        :param outlinks_availability: Return the timestamp of the last capture for all outlinks.
+        :param email_result: Send an email report of the captured URLs to the user’s email.
+        :param js_behavior_timeout: Run JS code for <N> seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system <N> is 5 sec. WARNING: The max <N> value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
+        :param on_confirmation: Optional callback called when archiving finishes.
+
+        :return: An object with the request information.
+        :rtype: WayBackSave
+        """
         payload = {
             "url": url,  # No quote needed.
             "capture_all": capture_all,
@@ -100,6 +121,9 @@ class WayBack:
             "skip_first_archive": skip_first_archive,
             "outlinks_availability": outlinks_availability,
             "email_result": email_result,
+            "if_not_archived_within": if_not_archived_within,
+            "js_behavior_timeout": js_behavior_timeout,
+            "use_user_agent": self.user_agent,
         }
 
         headers = {
