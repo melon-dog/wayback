@@ -18,7 +18,7 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 
 ## Basic usage:
 
-> **Note:**  
+> [!NOTE]  
 > You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
 1. Initialize the WayBack class with your access keys:
 ```python
@@ -48,7 +48,7 @@ def my_callback(result):
 result = wb.save("https://example.com", on_confirmation=my_callback)
 ```
 
-> **Warning:**  
+> [!WARNING]  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
 ## save() parameters:
