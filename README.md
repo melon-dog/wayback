@@ -69,6 +69,12 @@ The `save( )` method accepts several optional parameters to customize the captur
 - `js_behavior_timeout`: Run JS code for <N> seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system <N> is 5 sec. WARNING: The max <N> value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
 - `on_confirmation`: Optional callback called when archiving finishes.
 
+Returns a `WayBackSave` object with details about the save progress or result.
+- `url`: The URL to be archived.
+- `job_id`: The unique identifier of the archiving job to check.
+- `message`: Any important message about the processs.
+- `status_code`: The save request status code.
+
 ## status() parameters:
 
 The `status( )` method checks the status of an archiving job.
@@ -77,6 +83,18 @@ The `status( )` method checks the status of an archiving job.
 - `timeout`: Maximum time in seconds to wait for the status response.
 
 Returns a `WayBackStatus` object with details about the job's progress or result.
+- `status`: Archiving job status, "pending", "success", "error".
+- `job_id`: The unique identifier of the archiving job to check.
+- `original_url`: The URL to be archived.
+- `screenshot`: Screenshot of the website, if requested (capture_screenshot=1).
+- `timestamp`: Snapshot timestamp.
+- `duration_sec`: Duration of the archiving process.
+- `status_ext`: Error code
+- `exception`: Error 
+- `message`: Additional information about the process.
+- `outlinks`: List of processed outlinks (outlinks_availability=1).
+- `resources`: All files downloaded from the web.
+- `archive_url`: Full link to the website via the Wayback Machine
 
 ## indexed() parameters:
 
