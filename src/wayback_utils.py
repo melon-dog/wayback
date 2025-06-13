@@ -107,7 +107,7 @@ class WayBack:
         delay_wb_availability: int = 0,
         force_get: int = 0,
         skip_first_archive: int = 1,
-        if_not_archived_within: int = 3600,
+        if_not_archived_within: int = 2700,  # 45 min
         outlinks_availability: int = 0,
         email_result: int = 0,
         js_behavior_timeout: int = 5,
@@ -125,7 +125,7 @@ class WayBack:
         :param `delay_wb_availability`: The capture becomes available in the Wayback Machine after ~12 hours instead of immediately. This option helps reduce the load on our systems. All API responses remain exactly the same when using this option.
         :param `force_get`: Force the use of a simple HTTP GET request to capture the target URL. By default SPN2 does a HTTP HEAD on the target URL to decide whether to use a headless browser or a simple HTTP GET request. force_get overrides this behavior.
         :param `skip_first_archive`: Skip checking if a capture is a first if you don’t need this information. This will make captures run faster.
-        :param `if_not_archived_within`: Capture web page only if the latest existing capture at the Archive is older than the <timedelta> limit in seconds, e.g. “120”. If there is a capture within the defined timedelta, SPN2 returns that as a recent capture. The default system <timedelta> is 45 min.
+        :param `if_not_archived_within`: Capture web page only if the latest existing capture at the Archive is older than the <timedelta> limit in seconds, e.g. “120”. If there is a capture within the defined <timedelta>, SPN2 returns that as a recent capture. The default system <timedelta> is 45 min.
         :param `outlinks_availability`: Return the timestamp of the last capture for all outlinks.
         :param `email_result`: Send an email report of the captured URLs to the user’s email.
         :param `js_behavior_timeout`: Run JS code for <N> seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system <N> is 5 sec. WARNING: The max <N> value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
