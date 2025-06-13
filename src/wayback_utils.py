@@ -96,6 +96,7 @@ class WayBack:
 
         :param url: URL to be archived.
         :param timeout: Maximum time (in seconds) to wait for the archiving operation to complete.
+
         :param capture_all: Capture a web page with errors (HTTP status=4xx or 5xx). By default SPN2 captures only status=200 URLs.
         :param capture_outlinks: Capture web page outlinks automatically. This also applies to PDF, JSON, RSS and MRSS feeds.
         :param capture_screenshot: Capture full page screenshot in PNG format. This is also stored in the Wayback Machine as a different capture.
@@ -119,9 +120,9 @@ class WayBack:
             "delay_wb_availability": delay_wb_availability,
             "force_get": force_get,
             "skip_first_archive": skip_first_archive,
+            "if_not_archived_within": if_not_archived_within,
             "outlinks_availability": outlinks_availability,
             "email_result": email_result,
-            "if_not_archived_within": if_not_archived_within,
             "js_behavior_timeout": js_behavior_timeout,
             "use_user_agent": self.user_agent,
         }
