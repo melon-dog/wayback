@@ -4,7 +4,7 @@ __pycache__/
 */__pycache__/
 dist
 *.tmp
-playground.py
 .pypirc
-
+*.pypirc
 src/wayback_utils.egg-info/*
+playground.py
