@@ -179,7 +179,7 @@ class WayBack:
             return WayBackStatus({"status": "error"})
 
     def indexed(self, url: str, timeout: int = 300) -> bool:
-        waybackApiUrl = (
+        wayback_api_url = (
             f"http://web.archive.org/cdx/search/cdx?url={quote(url)}"
             + "&fl=timestamp,original"
             + "&output=json"
@@ -190,7 +190,7 @@ class WayBack:
         )
 
         try:
-            response = requests.get(url=waybackApiUrl, timeout=timeout)
+            response = requests.get(url=wayback_api_url, timeout=timeout)
             data = response.json()
             if isinstance(data, list):
                 return len(data) > 1
