@@ -164,10 +164,10 @@ class WayBack:
             "delay_wb_availability": int(delay_wb_availability == True),
             "force_get": int(force_get == True),
             "skip_first_archive": int(skip_first_archive == True),
-            "if_not_archived_within": int(if_not_archived_within == True),
+            "if_not_archived_within": if_not_archived_within,
             "outlinks_availability": int(outlinks_availability == True),
             "email_result": int(email_result == True),
-            "js_behavior_timeout": int(js_behavior_timeout == True),
+            "js_behavior_timeout": js_behavior_timeout,
             "use_user_agent": self.user_agent,
         }
 
