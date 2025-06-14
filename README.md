@@ -54,7 +54,7 @@ Verify if a URL is already indexed:
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
 # Functions
-These are the functions provided by the WayBack class.
+These are the functions provided by the `WayBack` class.
 
 ## save
 The `save( )` function accepts several optional parameters to customize the capture process:
