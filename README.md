@@ -110,7 +110,7 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 `screenshot`|str| Screenshot of the website, if requested (capture_screenshot=True).
 `timestamp`|str| Snapshot timestamp.
 `duration_sec`|float| Duration of the archiving process.
-`status_ext`|str| [Error code](#error-codes)
+`status_ext`|str| [Error code](#error-codes) identifier.
 `exception`|str| Error 
 `message`|str| Additional information about the process.
 `outlinks`|list[str]| List of processed outlinks (outlinks_availability=True).
