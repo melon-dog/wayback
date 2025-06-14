@@ -14,7 +14,7 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 # Usage:
 > [!NOTE]  
 > You need valid access keys to use the archiving API. 
-> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from your [archive.org account settings](https://archive.org/account/s3.php).
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from your [archive.org](https://archive.org/account/s3.php).
 
 Import WayBack classes:
 ```python
@@ -34,10 +34,10 @@ Start saving process:
 You can also pass a callback function to `save()` using the `on_confirmation` parameter. This callback will be called asynchronously with the final result of the archiving operation:
 
 ```python
-def my_callback(result):
-    print("Archiving finished:", result.status)
+    def my_callback(result):
+        print("Archiving finished:", result.status)
 
-result = wb.save("https://example.com", on_confirmation=my_callback)
+    result = wb.save("https://example.com", on_confirmation=my_callback)
 ```
 
 Check the status of a job:
