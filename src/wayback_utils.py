@@ -37,7 +37,7 @@ class WayBackStatus:
     """`screenshot`: Screenshot of the website, if requested (capture_screenshot=1)."""
     timestamp: str = None
     """`timestamp`: Snapshot timestamp."""
-    duration_sec: str = None
+    duration_sec: float = None
     """`duration_sec`: Duration of the archiving process."""
     status_ext: str = None
     """`status_ext`: Error code"""

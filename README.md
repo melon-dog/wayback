@@ -54,8 +54,10 @@ Verify if a URL is already indexed:
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
 # Functions
+
 ## save
 The `save( )` function accepts several optional parameters to customize the capture process:
+
 ### Parameters
 |Parameter|Type|Description|
 |-|-|-|
@@ -88,23 +90,25 @@ The `status( )` function checks the status of an archiving job.
 ### Parameters
 |Parameter|Type|Description|
 |-|-|-|
-
 `job_id`|str| The unique identifier of the archiving job to check.
 `timeout`|int| Maximum time in seconds to wait for the status response.
 
+### Returns
 Returns a `WayBackStatus` object with details about the job's progress or result.
-- `status`: Archiving job status, "pending", "success", "error".
-- `job_id`: The unique identifier of the archiving job to check.
-- `original_url`: The URL to be archived.
-- `screenshot`: Screenshot of the website, if requested (capture_screenshot=1).
-- `timestamp`: Snapshot timestamp.
-- `duration_sec`: Duration of the archiving process.
-- `status_ext`: Error code
-- `exception`: Error 
-- `message`: Additional information about the process.
-- `outlinks`: List of processed outlinks (outlinks_availability=1).
-- `resources`: All files downloaded from the web.
-- `archive_url`: Full link to the website via the Wayback Machine
+|Attributes|Type|Description|
+|-|-|-|
+`status`|str| Archiving job status, "pending", "success", "error".
+`job_id`|str| The unique identifier of the archiving job to check.
+`original_url`|str| The URL to be archived.
+`screenshot`|str| Screenshot of the website, if requested (capture_screenshot=1).
+`timestamp`|str| Snapshot timestamp.
+`duration_sec`|float| Duration of the archiving process.
+`status_ext`|str| Error code
+`exception`|str| Error 
+`message`|str| Additional information about the process.
+`outlinks`|list[str]| List of processed outlinks (outlinks_availability=1).
+`resources`|list[str]| All files downloaded from the web.
+`archive_url`|str| Full link to the website via the Wayback Machine
 
 ## indexed() parameters:
 The `indexed( )` function checks if a given URL has already been archived and indexed by the Wayback Machine.
