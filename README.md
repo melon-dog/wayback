@@ -31,13 +31,13 @@ Start saving process:
     result = wb.save("https://example.com")
 ```
 
-You can also pass a callback function to `save()` using the `on_confirmation` parameter. This callback will be called asynchronously with the final result of the archiving operation:
+You can also pass a callback function to `save()` using the `on_result` parameter. This callback will be called asynchronously with the final result of the archiving operation:
 
 ```python
     def my_callback(result):
         print("Archiving finished:", result.status)
 
-    result = wb.save("https://example.com", on_confirmation=my_callback)
+    result = wb.save("https://example.com", on_result=my_callback)
 ```
 
 Check the status of a job:
@@ -73,7 +73,7 @@ The `save( )` function accepts several optional parameters to customize the capt
 `outlinks_availability`|bool| Return the timestamp of the last capture for all outlinks.
 `email_result`|bool| Send an email report of the captured URLs to the user’s email.
 `js_behavior_timeout`|int| Run JS code for `N` seconds after page load to trigger target page functionality like image loading on mouse over, scroll down to load more content, etc. The default system `N` is 5 sec. WARNING: The max `N` value that applies is 30 sec. NOTE: If the target page doesn’t have any JS you need to run, you can use js_behavior_timeout=0 to speed up the capture.
-`on_confirmation`|callback| Optional callback called when archiving finishes.
+`on_result`|callback| Optional callback called when archiving finishes.
 
 ### Returns
 Returns a `WayBackSave` object with details about the save job.

@@ -133,7 +133,7 @@ class WayBack:
         outlinks_availability: bool = False,
         email_result: bool = False,
         js_behavior_timeout: int = 5,
-        on_confirmation: "Callable[[WayBackStatus], None]" = None,
+        on_result: "Callable[[WayBackStatus], None]" = None,
     ) -> WayBackSave:
         r"""
         Initiates the archiving process of a URL using the Wayback Machine service.
@@ -198,7 +198,7 @@ class WayBack:
         except:
             return WayBackSave({}, PARSE_ERROR)  # parse error
 
-        if on_confirmation is not None:
+        if on_result is not None:
 
             def poll_status() -> WayBackStatus:
                 status_error = WayBackStatus({"status": "error"})
@@ -210,13 +210,13 @@ class WayBack:
                             case "pending":
                                 time.sleep(10)
                             case "success":
-                                return on_confirmation(statusInfo)
+                                return on_result(statusInfo)
                             case "error":
-                                return on_confirmation(statusInfo)
+                                return on_result(statusInfo)
                             case _:
-                                return on_confirmation(status_error)
+                                return on_result(status_error)
                     except:
-                        return on_confirmation(status_error)
+                        return on_result(status_error)
 
             threading.Thread(target=poll_status, daemon=True).start()
 
