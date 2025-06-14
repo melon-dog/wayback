@@ -53,13 +53,6 @@ Verify if a URL is already indexed:
 > [!WARNING]  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
-
-# Main classes:
-- WayBackStatus: Represents the status of an archiving job.
-- WayBackSave: Represents the response when requesting to archive a URL.
-- WayBack: Main class to interact with the Wayback Machine API.
-
-
 # Functions
 ## save
 The `save( )` function accepts several optional parameters to customize the capture process:
