@@ -54,6 +54,7 @@ Verify if a URL is already indexed:
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
 # Functions
+These are the functions provided by the WayBack class.
 
 ## save
 The `save( )` function accepts several optional parameters to customize the capture process:
@@ -83,7 +84,6 @@ Returns a `WayBackSave` object with details about the save job.
 `job_id`|str| The unique identifier of the archiving job to check.
 `message`|str| Any important message about the processs.
 `status_code`|int| The save request status code.
-
 
 ## status
 The `status( )` function checks the status of an archiving job.
