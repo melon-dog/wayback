@@ -12,9 +12,9 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 ```pip install wayback_utils```
 
 # Usage:
-- You need valid access keys (`ACCESS_KEY` and `SECRET_KEY`) to use the archiving API.
 > [!NOTE]  
-> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
+> You need valid access keys to use the archiving API. 
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from your [archive.org account settings](https://archive.org/account/s3.php).
 
 Import WayBack classes:
 ```python
@@ -82,7 +82,7 @@ Returns a `WayBackSave` object with details about the save job.
 `url`|str| The URL to be archived.
 `job_id`|str| The unique identifier of the archiving job to check.
 `message`|str| Any important message about the processs.
-`status_code`|str| The save request status code.
+`status_code`|int| The save request status code.
 
 
 ## status
