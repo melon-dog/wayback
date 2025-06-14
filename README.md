@@ -1,5 +1,6 @@
 [![Python support](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12|%203.13|%203.14-blue)](https://pypi.org/project/wayback-utils/)
 [![PyPI Downloads](https://static.pepy.tech/badge/wayback-utils)](https://pepy.tech/projects/wayback-utils)
+
 # wayback_utils.py
 
 This module provides a Python interface to interact with the Wayback Machine web page archiving service (web.archive.org). It allows you to save URLs, check the status of archiving jobs, and verify if a URL has already been indexed.
