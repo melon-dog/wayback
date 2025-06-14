@@ -112,9 +112,11 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 
 ## indexed() parameters:
 The `indexed( )` function checks if a given URL has already been archived and indexed by the Wayback Machine.
-
-- `url`: The URL to check for existing archives.
-- `timeout`: Maximum time in seconds to wait for the response.
+### Parameters
+|Parameter|Type|Description|
+|-|-|-|
+`url`|str| The URL to check for existing archives.
+`timeout`|int| Maximum time in seconds to wait for the response.
 
 Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
 
