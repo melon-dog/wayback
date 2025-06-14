@@ -159,3 +159,10 @@ The `indexed( )` function checks if a given URL has already been archived and in
 `error:too-many-requests`| The target host has received too many requests from SPN and is blocking it (HTTP status=429). Captures to the same host will be delayed for 10-20s to remedy.
 `error:user-session-limit`| User has reached the limit of concurrent active capture sessions.
 `error:unauthorized`| The server requires authentication (HTTP status=401).
+
+# Performance Tips
+
+- If you don’t need to know if your capture is the first in the Archive, please use `skip_first_archive`=True.
+- If you are sure that the target URL is not an HTML page and can be downloaded via a plain HTTP request, use option `force_get`=True.
+- If the target HTML page is plain and you don’t need to run any JS behavior to download all content (JS behaviors scroll down the page automatically and/or trigger AJAX requests), use `js_behavior_timeout`=0.
+- Do NOT use `capture_outlinks`=True unless it is really necessary to capture all outlinks. If you are interested in capturing a specific outlink, make a capture, check the list of outlinks returned by SPN2 and capture only the specific outlink(s) you need.
