@@ -83,12 +83,14 @@ Returns a `WayBackSave` object with details about the save job.
 `status_code`|str| The save request status code.
 
 
-## status() parameters:
+## status
+The `status( )` function checks the status of an archiving job.
+### Parameters
+|Parameter|Type|Description|
+|-|-|-|
 
-The `status( )` method checks the status of an archiving job.
-
-- `job_id`: The unique identifier of the archiving job to check.
-- `timeout`: Maximum time in seconds to wait for the status response.
+`job_id`|str| The unique identifier of the archiving job to check.
+`timeout`|int| Maximum time in seconds to wait for the status response.
 
 Returns a `WayBackStatus` object with details about the job's progress or result.
 - `status`: Archiving job status, "pending", "success", "error".
@@ -105,8 +107,7 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 - `archive_url`: Full link to the website via the Wayback Machine
 
 ## indexed() parameters:
-
-The `indexed( )` method checks if a given URL has already been archived and indexed by the Wayback Machine.
+The `indexed( )` function checks if a given URL has already been archived and indexed by the Wayback Machine.
 
 - `url`: The URL to check for existing archives.
 - `timeout`: Maximum time in seconds to wait for the response.
@@ -114,7 +115,6 @@ The `indexed( )` method checks if a given URL has already been archived and inde
 Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
 
 ## Error Codes
-
 |status_ext|Description|
 |-|-|
 |`error:bad-gateway`| Bad Gateway for URL (HTTP status=502).|
