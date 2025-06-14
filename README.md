@@ -85,7 +85,7 @@ Returns a `WayBackSave` object with details about the save job.
 `message`|str| Any important message about the processs.
 `status_code`|int| The save request status code.
 
-#### Performance Tips
+### Performance Tips
 
 - If you don’t need to know if your capture is the first in the Archive, please use `skip_first_archive`=True.
 - If you are sure that the target URL is not an HTML page and can be downloaded via a plain HTTP request, use option `force_get`=True.
