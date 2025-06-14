@@ -8,18 +8,11 @@ This module provides a Python interface to interact with the Wayback Machine web
 
 Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-page-docs-2023-01-22)
 
-## Main classes:
-
-- WayBackStatus: Represents the status of an archiving job.
-- WayBackSave: Represents the response when requesting to archive a URL.
-- WayBack: Main class to interact with the Wayback Machine API.
 
 # Installation
 ```pip install wayback_utils```
 
-
-# Basic usage:
-
+# Usage:
 - You need valid access keys (`ACCESS_KEY` and `SECRET_KEY`) to use the archiving API.
 > [!NOTE]  
 > You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
@@ -27,23 +20,19 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 - You can provide an on_confirmation callback function to save() to receive the final archiving status asynchronously.
 - The module uses requests and threading.
 
-1. Initialize the WayBack class with your access keys:
+Import WayBack classes:
 ```python
     from wayback_utils import WayBack, WayBackStatus, WayBackSave
-    
+```
+
+Initialize the WayBack class with your access keys:
+```python    
     wb = WayBack(ACCESS_KEY="your_access_key", SECRET_KEY="your_secret_key")
 ```
-2. Save a URL:
+
+Start saving process:
 ```python
     result = wb.save("https://example.com")
-```
-3. Check the status of a job:
-```python
-    status = wb.status(result.job_id)
-```
-4. Verify if a URL is already indexed:
-```python
-    is_indexed = wb.indexed("https://example.com")
 ```
 
 You can also pass a callback function to `save()` using the `on_confirmation` parameter. This callback will be called asynchronously with the final result of the archiving operation:
@@ -55,11 +44,27 @@ def my_callback(result):
 result = wb.save("https://example.com", on_confirmation=my_callback)
 ```
 
+Check the status of a job:
+```python
+    status = wb.status(result.job_id)
+```
+
+Verify if a URL is already indexed:
+```python
+    is_indexed = wb.indexed("https://example.com")
+```
+
 > [!WARNING]  
 > URLs archived with the Wayback Machine may take up to 12 hours to become fully indexed and discoverable.
 
-# Functions
 
+# Main classes:
+- WayBackStatus: Represents the status of an archiving job.
+- WayBackSave: Represents the response when requesting to archive a URL.
+- WayBack: Main class to interact with the Wayback Machine API.
+
+
+# Functions
 ## save
 The `save( )` function accepts several optional parameters to customize the capture process:
 ### Parameters
@@ -87,9 +92,6 @@ Returns a `WayBackSave` object with details about the save job.
 `job_id`|str| The unique identifier of the archiving job to check.
 `message`|str| Any important message about the processs.
 `status_code`|str| The save request status code.
-
-
-Returns a `WayBackSave` object with details about the save progress or result.
 
 
 ## status() parameters:
