@@ -127,7 +127,7 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 `resources`|list[str]| All files downloaded from the web.
 `archive_url`|str| Full link to the website via the Wayback Machine
 
-## indexed() parameters:
+## indexed:
 The `indexed( )` function checks if a given URL has already been archived and indexed by the Wayback Machine.
 ### Parameters
 |Parameter|Type|Description|
