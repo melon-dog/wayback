@@ -1,4 +1,4 @@
-[![Python support](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12|%203.13|%203.14-blue)](https://pypi.org/project/wayback-utils/)
+[![Python support](https://img.shields.io/badge/python-3.10%20|%203.11%20|%203.12%20|%203.13%20|%203.14-blue)](https://pypi.org/project/wayback-utils/)
 [![PyPI Downloads](https://static.pepy.tech/badge/wayback-utils)](https://pepy.tech/projects/wayback-utils)
 
 # wayback_utils.py
