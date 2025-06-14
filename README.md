@@ -6,6 +6,23 @@
 
 This module provides a Python interface to interact with the Wayback Machine web page archiving service (web.archive.org). It allows you to save URLs, check the status of archiving jobs, and verify if a URL has already been indexed.
 
+# Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Functions](#functions)
+  - [save](#save)
+    - [Parameters](#save-parameters)
+    - [Returns](#save-returns)
+  - [status](#status)
+    - [Parameters](#status-parameters)
+    - [Returns](#status-returns)
+  - [indexed](#indexed)
+    - [Parameters](#indexed-parameters)
+    - [Returns](#indexed-returns)
+- [Error Codes](#error-codes)
+- [License](#license)
+
 Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-page-docs-2023-01-22)
 
 # Installation
