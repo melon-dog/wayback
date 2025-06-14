@@ -118,7 +118,8 @@ The `indexed( )` function checks if a given URL has already been archived and in
 `url`|str| The URL to check for existing archives.
 `timeout`|int| Maximum time in seconds to wait for the response.
 
-Returns `True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
+### Returns 
+`True` if the URL has at least one valid (HTTP 2xx or 3xx) archived snapshot, otherwise `False`.
 
 ## Error Codes
 |status_ext|Description|
