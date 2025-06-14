@@ -89,7 +89,7 @@ Returns a `WayBackSave` object with details about the save job.
 
 - If you don’t need to know if your capture is the first in the Archive, please use `skip_first_archive`=True.
 - If you are sure that the target URL is not an HTML page and can be downloaded via a plain HTTP request, use option `force_get`=True.
-- If the target HTML page is plain and you don’t need to run any JS behavior to download all content (JS behaviors scroll down the page automatically and/or trigger AJAX requests), use `js_behavior_timeout`=0.
+- If the target HTML page is plain and you don’t need to run any JS behavior to download all content (JS behaviors scroll down the page automatically and/or trigger AJAX requests), use `js_behavior_timeout`=False.
 - Do NOT use `capture_outlinks`=True unless it is really necessary to capture all outlinks. If you are interested in capturing a specific outlink, make a capture, check the list of outlinks returned by SPN2 and capture only the specific outlink(s) you need.
 
 ## status
@@ -107,13 +107,13 @@ Returns a `WayBackStatus` object with details about the job's progress or result
 `status`|str| Archiving job status, "pending", "success", "error".
 `job_id`|str| The unique identifier of the archiving job to check.
 `original_url`|str| The URL to be archived.
-`screenshot`|str| Screenshot of the website, if requested (capture_screenshot=1).
+`screenshot`|str| Screenshot of the website, if requested (capture_screenshot=True).
 `timestamp`|str| Snapshot timestamp.
 `duration_sec`|float| Duration of the archiving process.
 `status_ext`|str| Error code
 `exception`|str| Error 
 `message`|str| Additional information about the process.
-`outlinks`|list[str]| List of processed outlinks (outlinks_availability=1).
+`outlinks`|list[str]| List of processed outlinks (outlinks_availability=True).
 `resources`|list[str]| All files downloaded from the web.
 `archive_url`|str| Full link to the website via the Wayback Machine
 
