@@ -14,7 +14,7 @@ Based on [SPN2 Public API Docs](https://archive.org/details/spn-2-public-api-pag
 # Usage:
 > [!NOTE]  
 > You need valid access keys to use the archiving API. 
-> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from your [archive.org](https://archive.org/account/s3.php).
+> You can obtain your `ACCESS_KEY` and `SECRET_KEY` from [archive.org](https://archive.org/account/s3.php).
 
 Import WayBack classes:
 ```python
