@@ -28,7 +28,7 @@ Initialize the WayBack class with your access keys:
 
 Start saving process:
 ```python
-    result = wb.save("https://example.com")
+    save = wb.save("https://example.com")
 ```
 
 You can also pass a callback function to `save()` using the `on_result` parameter. This callback will be called asynchronously with the final result of the archiving operation:
@@ -37,12 +37,12 @@ You can also pass a callback function to `save()` using the `on_result` paramete
     def my_callback(result):
         print("Archiving finished:", result.status)
 
-    result = wb.save("https://example.com", on_result=my_callback)
+    save = wb.save("https://example.com", on_result=my_callback)
 ```
 
 Check the status of a job:
 ```python
-    status = wb.status(result.job_id)
+    save_result = wb.status(save.job_id)
 ```
 
 Verify if a URL is already indexed:
