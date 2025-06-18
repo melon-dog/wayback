@@ -89,7 +89,7 @@ Returns a `WayBackSave` object with details about the save job.
 
 - If you don’t need to know if your capture is the first in the Archive, please use `skip_first_archive`=True.
 - If you are sure that the target URL is not an HTML page and can be downloaded via a plain HTTP request, use option `force_get`=True.
-- If the target HTML page is plain and you don’t need to run any JS behavior to download all content (JS behaviors scroll down the page automatically and/or trigger AJAX requests), use `js_behavior_timeout`=False.
+- If the target HTML page is plain and you don’t need to run any JS behavior to download all content (JS behaviors scroll down the page automatically and/or trigger AJAX requests), use `js_behavior_timeout`=0.
 - Do NOT use `capture_outlinks`=True unless it is really necessary to capture all outlinks. If you are interested in capturing a specific outlink, make a capture, check the list of outlinks returned by SPN2 and capture only the specific outlink(s) you need.
 
 ## status

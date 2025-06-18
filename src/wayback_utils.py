@@ -18,7 +18,7 @@ class WayBackStatus:
         `original_url` (str): The URL to be archived.
         `screenshot` (str): Screenshot of the website, if requested (capture_screenshot=1).
         `timestamp` (str): Snapshot timestamp.
-        `duration_sec` (str): Duration of the archiving process.
+        `duration_sec` (float): Duration of the archiving process.
         `status_ext` (str): Error code
         `exception` (str): Error
         `message` (str): Additional information about the process.
