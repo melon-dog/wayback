@@ -133,7 +133,7 @@ class WayBack:
         outlinks_availability: bool = False,
         email_result: bool = False,
         js_behavior_timeout: int = 5,
-        on_result: "Callable[[WayBackStatus], None]" = None,
+        on_result: Callable[[WayBackStatus], None] = None,
     ) -> WayBackSave:
         r"""
         Initiates the archiving process of a URL using the Wayback Machine service.
